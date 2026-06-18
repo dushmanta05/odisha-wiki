@@ -2,7 +2,7 @@
 import '../styles/theme.css';
 ---
 
-<html lang="or">
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -22,46 +22,48 @@ import '../styles/theme.css';
 	</head>
 	<body>
 		<div class="container">
-			<!-- Header Tagline -->
 			<header class="header">
-				<p class="top-tagline">ଆମ ଓଡ଼ିଶା, ଆମ ପରିଚୟ।</p>
+				<div class="header-top">
+					<div class="lang-switcher">
+						<button id="btn-od" class="lang-btn">ଓଡ଼ିଆ</button>
+						<button id="btn-en" class="lang-btn">English</button>
+					</div>
+				</div>
+				<p id="tagline" class="top-tagline"></p>
 			</header>
 
-			<!-- Main Coming Soon Section -->
 			<main class="main-content">
 				<h1 id="brand-title" class="logo">odisha<span>.wiki</span></h1>
 				<div class="divider"></div>
-				<p class="subtitle">Explore everything from Odisha's glorious culture, rich history, authentic cuisine, breathtaking places, and beyond—everyone and everything will be here.</p>
+				<p id="subtitle" class="subtitle"></p>
 
-				<div class="status-label">WE ARE LAUNCHING IN</div>
+				<div id="status-label" class="status-label"></div>
 
-				<!-- Countdown Timer -->
 				<div class="timer-container" aria-live="polite">
 					<div class="timer-segment">
-						<span id="days" class="timer-number">00</span>
-						<span class="timer-label">Days</span>
+						<span id="days" class="timer-number"></span>
+						<span id="days-label" class="timer-label"></span>
 					</div>
 					<div class="timer-colon">:</div>
 					<div class="timer-segment">
-						<span id="hours" class="timer-number">00</span>
-						<span class="timer-label">Hours</span>
+						<span id="hours" class="timer-number"></span>
+						<span id="hours-label" class="timer-label"></span>
 					</div>
 					<div class="timer-colon">:</div>
 					<div class="timer-segment">
-						<span id="minutes" class="timer-number">00</span>
-						<span class="timer-label">Minutes</span>
+						<span id="minutes" class="timer-number"></span>
+						<span id="minutes-label" class="timer-label"></span>
 					</div>
 					<div class="timer-colon">:</div>
 					<div class="timer-segment">
-						<span id="seconds" class="timer-number">00</span>
-						<span class="timer-label">Seconds</span>
+						<span id="seconds" class="timer-number"></span>
+						<span id="seconds-label" class="timer-label"></span>
 					</div>
 				</div>
 			</main>
 
-			<!-- Footer Section -->
 			<footer class="footer">
-				<p class="footer-text">Stay tuned. Something beautiful and proud is coming.</p>
+				<p id="footer-text" class="footer-text"></p>
 				<div class="footer-divider"></div>
 			</footer>
 		</div>
@@ -101,14 +103,60 @@ import '../styles/theme.css';
 				flex-direction: column;
 				justify-content: space-between;
 				align-items: center;
-				padding: 3rem 2rem;
+				padding: 2rem 2rem 3rem 2rem;
 				z-index: 10;
 			}
 
-			/* Header */
 			.header {
-				text-align: center;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 				margin-top: 1rem;
+			}
+
+			.header-top {
+				display: flex;
+				justify-content: flex-end;
+				width: 100%;
+				max-width: 1200px;
+				margin-bottom: 2rem;
+			}
+
+			.lang-switcher {
+				display: flex;
+				background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				border-radius: 30px;
+				padding: 4px;
+				backdrop-filter: blur(16px);
+				-webkit-backdrop-filter: blur(16px);
+				box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+			}
+
+			.lang-btn {
+				background: transparent;
+				border: 1px solid transparent;
+				color: var(--text-muted);
+				padding: 0.5rem 1.2rem;
+				font-size: 0.85rem;
+				font-weight: 600;
+				border-radius: 25px;
+				cursor: pointer;
+				transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+				font-family: var(--font-sans), var(--font-oriya);
+			}
+
+			.lang-btn.active {
+				background: rgba(193, 18, 31, 0.75);
+				color: var(--white);
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				box-shadow: 0 4px 15px rgba(193, 18, 31, 0.4);
+			}
+
+			.lang-btn:hover:not(.active) {
+				color: var(--white);
+				background: rgba(255, 255, 255, 0.05);
 			}
 
 			.top-tagline {
@@ -120,6 +168,7 @@ import '../styles/theme.css';
 				margin-bottom: 0.5rem;
 				text-shadow: 0 0 15px rgba(193, 18, 31, 0.6);
 				animation: glowPulse 4s infinite ease-in-out;
+				text-align: center;
 			}
 
 			@keyframes glowPulse {
@@ -172,11 +221,12 @@ import '../styles/theme.css';
 				font-size: 1.25rem;
 				font-weight: 300;
 				color: var(--text-muted);
-				max-width: 600px;
+				max-width: 750px;
 				margin: 0 0 3.5rem 0;
 				line-height: 1.6;
 				letter-spacing: 0.02em;
 				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+				text-align: center;
 			}
 
 			.status-label {
@@ -287,6 +337,11 @@ import '../styles/theme.css';
 					padding: 2rem 1.5rem;
 				}
 
+				.header-top {
+					justify-content: center;
+					margin-bottom: 1.5rem;
+				}
+
 				.top-tagline {
 					font-size: 1.15rem;
 				}
@@ -358,6 +413,84 @@ import '../styles/theme.css';
 		<script>
 			const launchDate = new Date("2026-07-16T00:00:00+05:30").getTime();
 
+			const translations = {
+				en: {
+					tagline: "Our Odisha, Our Identity.",
+					subtitle: "Explore Odisha's glorious culture, rich history, authentic cuisine, breathtaking destinations, and countless untold stories - all in one place.",
+					statusLabel: "LAUNCHING IN",
+					daysLabel: "Days",
+					hoursLabel: "Hours",
+					minutesLabel: "Minutes",
+					secondsLabel: "Seconds",
+					footerText: "Stay tuned. A new way to experience Odisha's pride, culture, and beauty is coming soon."
+				},
+				od: {
+					tagline: "ଆମ ଓଡ଼ିଶା, ଆମ ପରିଚୟ।",
+					subtitle: "ଓଡ଼ିଶାର ଗୌରବମୟ ସଂସ୍କୃତି, ସମୃଦ୍ଧ ଇତିହାସ, ସ୍ୱାଦିଷ୍ଟ ବ୍ୟଞ୍ଜନ, ମନୋମୁଗ୍ଧକର ପର୍ଯ୍ୟଟନ ସ୍ଥଳୀ ଏବଂ ଅନେକ ଅଜଣା କାହାଣୀ - ସବୁକିଛି ଏକ ସ୍ଥାନରେ।",
+					statusLabel: "ଶୁଭାରମ୍ଭ ପାଇଁ ଆଉ",
+					daysLabel: "ଦିନ",
+					hoursLabel: "ଘଣ୍ଟା",
+					minutesLabel: "ମିନିଟ୍",
+					secondsLabel: "ସେକେଣ୍ଡ୍",
+					footerText: "ଓଡ଼ିଶାର ଗୌରବ, ସଂସ୍କୃତି ଓ ସୌନ୍ଦର୍ଯ୍ୟର ଏକ ନୂଆ ଅନୁଭବ ଶୀଘ୍ର ଆସୁଛି।"
+				}
+			};
+
+			const odiaDigits = ['୦', '୧', '୨', '୩', '୪', '୫', '୬', '୭', '୮', '୯'];
+			let currentLang: 'en' | 'od' = 'en';
+
+			try {
+				const savedLang = localStorage.getItem('pref-lang');
+				if (savedLang === 'en' || savedLang === 'od') {
+					currentLang = savedLang;
+				}
+			} catch (e) {
+				console.warn('LocalStorage not accessible:', e);
+			}
+
+			function convertDigits(numStr: string, lang: 'en' | 'od') {
+				if (lang !== 'od') return numStr;
+				return numStr.replace(/[0-9]/g, (match) => odiaDigits[parseInt(match)]);
+			}
+
+			function updateLanguageDOM() {
+				const langData = translations[currentLang];
+
+				const taglineEl = document.getElementById("tagline");
+				const subtitleEl = document.getElementById("subtitle");
+				const statusEl = document.getElementById("status-label");
+				const footerEl = document.getElementById("footer-text");
+
+				if (taglineEl) taglineEl.innerText = langData.tagline;
+				if (subtitleEl) subtitleEl.innerText = langData.subtitle;
+				if (statusEl) statusEl.innerText = langData.statusLabel;
+				if (footerEl) footerEl.innerText = langData.footerText;
+
+				const daysLabelEl = document.getElementById("days-label");
+				const hoursLabelEl = document.getElementById("hours-label");
+				const minutesLabelEl = document.getElementById("minutes-label");
+				const secondsLabelEl = document.getElementById("seconds-label");
+
+				if (daysLabelEl) daysLabelEl.innerText = langData.daysLabel;
+				if (hoursLabelEl) hoursLabelEl.innerText = langData.hoursLabel;
+				if (minutesLabelEl) minutesLabelEl.innerText = langData.minutesLabel;
+				if (secondsLabelEl) secondsLabelEl.innerText = langData.secondsLabel;
+
+				document.documentElement.lang = currentLang;
+
+				const btnOd = document.getElementById("btn-od");
+				const btnEn = document.getElementById("btn-en");
+				if (btnOd && btnEn) {
+					if (currentLang === 'od') {
+						btnOd.classList.add("active");
+						btnEn.classList.remove("active");
+					} else {
+						btnEn.classList.add("active");
+						btnOd.classList.remove("active");
+					}
+				}
+			}
+
 			function updateCountdown() {
 				const now = new Date().getTime();
 				const difference = launchDate - now;
@@ -368,10 +501,11 @@ import '../styles/theme.css';
 				const secondsElement = document.getElementById("seconds");
 
 				if (difference <= 0) {
-					if (daysElement) daysElement.innerText = "00";
-					if (hoursElement) hoursElement.innerText = "00";
-					if (minutesElement) minutesElement.innerText = "00";
-					if (secondsElement) secondsElement.innerText = "00";
+					const zeroStr = convertDigits("00", currentLang);
+					if (daysElement) daysElement.innerText = zeroStr;
+					if (hoursElement) hoursElement.innerText = zeroStr;
+					if (minutesElement) minutesElement.innerText = zeroStr;
+					if (secondsElement) secondsElement.innerText = zeroStr;
 					return;
 				}
 
@@ -380,13 +514,52 @@ import '../styles/theme.css';
 				const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
 				const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-				if (daysElement) daysElement.innerText = String(days).padStart(2, '0');
-				if (hoursElement) hoursElement.innerText = String(hours).padStart(2, '0');
-				if (minutesElement) minutesElement.innerText = String(minutes).padStart(2, '0');
-				if (secondsElement) secondsElement.innerText = String(seconds).padStart(2, '0');
+				const daysStr = String(days).padStart(2, '0');
+				const hoursStr = String(hours).padStart(2, '0');
+				const minutesStr = String(minutes).padStart(2, '0');
+				const secondsStr = String(seconds).padStart(2, '0');
+
+				if (daysElement) daysElement.innerText = convertDigits(daysStr, currentLang);
+				if (hoursElement) hoursElement.innerText = convertDigits(hoursStr, currentLang);
+				if (minutesElement) minutesElement.innerText = convertDigits(minutesStr, currentLang);
+				if (secondsElement) secondsElement.innerText = convertDigits(secondsStr, currentLang);
 			}
 
+			function initLangSwitcher() {
+				const btnOd = document.getElementById("btn-od");
+				const btnEn = document.getElementById("btn-en");
+
+				if (btnOd) {
+					btnOd.addEventListener('click', () => {
+						if (currentLang !== 'od') {
+							currentLang = 'od';
+							try {
+								localStorage.setItem('pref-lang', 'od');
+							} catch (e) {}
+							updateLanguageDOM();
+							updateCountdown();
+						}
+					});
+				}
+
+				if (btnEn) {
+					btnEn.addEventListener('click', () => {
+						if (currentLang !== 'en') {
+							currentLang = 'en';
+							try {
+								localStorage.setItem('pref-lang', 'en');
+							} catch (e) {}
+							updateLanguageDOM();
+							updateCountdown();
+						}
+					});
+				}
+			}
+
+			initLangSwitcher();
+			updateLanguageDOM();
 			updateCountdown();
+
 			setInterval(updateCountdown, 1000);
 		</script>
 	</body>
