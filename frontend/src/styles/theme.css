@@ -1,0 +1,13 @@
+:root {
+  --bg: #050505;
+  --red: #C1121F;
+  --red-dark: #7A0012;
+  --white: #F8F8F8;
+  --text-muted: rgba(248, 248, 248, 0.6);
+  --text-dim: rgba(248, 248, 248, 0.3);
+
+  /* Fonts */
+  --font-teko: 'Teko', sans-serif;
+  --font-oriya: 'Noto Sans Oriya', sans-serif;
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}

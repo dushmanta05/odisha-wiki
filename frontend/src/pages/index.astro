@@ -1,5 +1,5 @@
 ---
-// index.astro
+import '../styles/theme.css';
 ---
 
 <html lang="or">
@@ -67,20 +67,6 @@
 		</div>
 
 		<style>
-			:root {
-				--bg: #050505;
-				--red: #C1121F;
-				--red-dark: #7A0012;
-				--white: #F8F8F8;
-				--text-muted: rgba(248, 248, 248, 0.6);
-				--text-dim: rgba(248, 248, 248, 0.3);
-
-				/* Fonts */
-				--font-teko: 'Teko', sans-serif;
-				--font-oriya: 'Noto Sans Oriya', sans-serif;
-				--font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-			}
-
 			* {
 				box-sizing: border-box;
 				margin: 0;
@@ -147,7 +133,6 @@
 				}
 			}
 
-			/* Main Content */
 			.main-content {
 				display: flex;
 				flex-direction: column;
@@ -204,7 +189,6 @@
 				text-shadow: 0 0 10px rgba(193, 18, 31, 0.3);
 			}
 
-			/* Timer Grid */
 			.timer-container {
 				display: flex;
 				align-items: center;
@@ -271,7 +255,6 @@
 				text-shadow: 0 0 15px rgba(193, 18, 31, 0.5);
 			}
 
-			/* Footer */
 			.footer {
 				text-align: center;
 				margin-bottom: 1rem;
@@ -292,7 +275,6 @@
 				margin: 1rem auto 0 auto;
 			}
 
-			/* Media Queries */
 			@media (max-width: 768px) {
 				body {
 					background-image:
