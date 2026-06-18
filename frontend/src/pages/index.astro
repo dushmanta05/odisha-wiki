@@ -1,0 +1,411 @@
+---
+// index.astro
+---
+
+<html lang="or">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Odisha Wiki - Launching Soon</title>
+
+		<!-- SEO Meta Tags -->
+		<meta name="description" content="Odisha Wiki - Everything about Odisha, in one place. Official launch timer." />
+		<meta name="keywords" content="Odisha, Wiki, Odisha Wiki, Odia, History, Culture, Tourism, Odisha Portal" />
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;500;600;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<!-- Header Tagline -->
+			<header class="header">
+				<p class="top-tagline">ଆମ ଓଡ଼ିଶା, ଆମ ପରିଚୟ।</p>
+			</header>
+
+			<!-- Main Coming Soon Section -->
+			<main class="main-content">
+				<h1 id="brand-title" class="logo">odisha<span>.wiki</span></h1>
+				<div class="divider"></div>
+				<p class="subtitle">Explore everything from Odisha's glorious culture, rich history, authentic cuisine, breathtaking places, and beyond—everyone and everything will be here.</p>
+
+				<div class="status-label">WE ARE LAUNCHING IN</div>
+
+				<!-- Countdown Timer -->
+				<div class="timer-container" aria-live="polite">
+					<div class="timer-segment">
+						<span id="days" class="timer-number">00</span>
+						<span class="timer-label">Days</span>
+					</div>
+					<div class="timer-colon">:</div>
+					<div class="timer-segment">
+						<span id="hours" class="timer-number">00</span>
+						<span class="timer-label">Hours</span>
+					</div>
+					<div class="timer-colon">:</div>
+					<div class="timer-segment">
+						<span id="minutes" class="timer-number">00</span>
+						<span class="timer-label">Minutes</span>
+					</div>
+					<div class="timer-colon">:</div>
+					<div class="timer-segment">
+						<span id="seconds" class="timer-number">00</span>
+						<span class="timer-label">Seconds</span>
+					</div>
+				</div>
+			</main>
+
+			<!-- Footer Section -->
+			<footer class="footer">
+				<p class="footer-text">Stay tuned. Something beautiful and proud is coming.</p>
+				<div class="footer-divider"></div>
+			</footer>
+		</div>
+
+		<style>
+			:root {
+				--bg: #050505;
+				--red: #C1121F;
+				--red-dark: #7A0012;
+				--white: #F8F8F8;
+				--text-muted: rgba(248, 248, 248, 0.6);
+				--text-dim: rgba(248, 248, 248, 0.3);
+
+				/* Fonts */
+				--font-teko: 'Teko', sans-serif;
+				--font-oriya: 'Noto Sans Oriya', sans-serif;
+				--font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			}
+
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				background-color: var(--bg);
+				background-image:
+					radial-gradient(circle at center, rgba(5, 5, 5, 0.1) 0%, rgba(5, 5, 5, 0.85) 90%),
+					linear-gradient(to right, rgba(5, 5, 5, 0.9) 0%, rgba(5, 5, 5, 0.4) 60%, rgba(5, 5, 5, 0.9) 100%),
+					url('/bg-image.png');
+				background-size: cover;
+				background-position: right center;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				color: var(--white);
+				font-family: var(--font-sans);
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				overflow-x: hidden;
+			}
+
+			.container {
+				width: 100%;
+				max-width: 1200px;
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				padding: 3rem 2rem;
+				z-index: 10;
+			}
+
+			/* Header */
+			.header {
+				text-align: center;
+				margin-top: 1rem;
+			}
+
+			.top-tagline {
+				font-family: var(--font-oriya);
+				font-size: 1.4rem;
+				font-weight: 500;
+				color: var(--white);
+				letter-spacing: 0.02em;
+				margin-bottom: 0.5rem;
+				text-shadow: 0 0 15px rgba(193, 18, 31, 0.6);
+				animation: glowPulse 4s infinite ease-in-out;
+			}
+
+			@keyframes glowPulse {
+				0%, 100% {
+					text-shadow: 0 0 15px rgba(193, 18, 31, 0.4);
+					opacity: 0.9;
+				}
+				50% {
+					text-shadow: 0 0 25px rgba(193, 18, 31, 0.8), 0 0 5px var(--red);
+					opacity: 1;
+				}
+			}
+
+			/* Main Content */
+			.main-content {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				flex-grow: 1;
+				width: 100%;
+				margin: 2rem 0;
+			}
+
+			.logo {
+				font-family: var(--font-teko);
+				font-size: 8.5rem;
+				line-height: 0.8;
+				font-weight: 600;
+				text-transform: lowercase;
+				letter-spacing: -0.01em;
+				margin: 0;
+				color: var(--white);
+				text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+				user-select: none;
+			}
+
+			.logo span {
+				color: var(--red);
+				text-shadow: 0 0 20px rgba(193, 18, 31, 0.5);
+			}
+
+			.divider {
+				width: 120px;
+				height: 2px;
+				background: linear-gradient(90deg, transparent, var(--red) 50%, transparent);
+				margin: 1.5rem 0;
+			}
+
+			.subtitle {
+				font-size: 1.25rem;
+				font-weight: 300;
+				color: var(--text-muted);
+				max-width: 600px;
+				margin: 0 0 3.5rem 0;
+				line-height: 1.6;
+				letter-spacing: 0.02em;
+				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+			}
+
+			.status-label {
+				font-size: 0.85rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.25em;
+				color: var(--red);
+				margin-bottom: 1.5rem;
+				text-shadow: 0 0 10px rgba(193, 18, 31, 0.3);
+			}
+
+			/* Timer Grid */
+			.timer-container {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 1.5rem;
+				margin-bottom: 2rem;
+				width: 100%;
+				max-width: 800px;
+				user-select: none;
+			}
+
+			.timer-segment {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				min-width: 160px;
+				transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				cursor: default;
+			}
+
+			.timer-segment:hover {
+				transform: translateY(-5px) scale(1.03);
+			}
+
+			.timer-segment:hover .timer-number {
+				color: var(--white);
+				text-shadow: 0 0 25px rgba(193, 18, 31, 0.8), 0 5px 15px rgba(0, 0, 0, 0.6);
+			}
+
+			.timer-segment:hover .timer-label {
+				color: var(--white);
+			}
+
+			.timer-number {
+				font-family: var(--font-teko);
+				font-size: 10.5rem;
+				line-height: 0.8;
+				font-weight: 500;
+				color: var(--white);
+				text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+				transition: color 0.3s ease, text-shadow 0.3s ease;
+				font-variant-numeric: tabular-nums;
+				text-align: center;
+				display: inline-block;
+			}
+
+			.timer-label {
+				font-family: var(--font-sans), var(--font-oriya);
+				font-size: 0.85rem;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				color: var(--text-muted);
+				margin-top: 0.75rem;
+				transition: color 0.3s ease;
+			}
+
+			.timer-colon {
+				font-family: var(--font-teko);
+				font-size: 7.5rem;
+				line-height: 0.8;
+				color: var(--red);
+				margin-top: -2rem;
+				text-shadow: 0 0 15px rgba(193, 18, 31, 0.5);
+			}
+
+			/* Footer */
+			.footer {
+				text-align: center;
+				margin-bottom: 1rem;
+				width: 100%;
+			}
+
+			.footer-text {
+				font-size: 0.95rem;
+				color: var(--text-muted);
+				letter-spacing: 0.05em;
+				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+			}
+
+			.footer-divider {
+				width: 40px;
+				height: 1px;
+				background: var(--text-dim);
+				margin: 1rem auto 0 auto;
+			}
+
+			/* Media Queries */
+			@media (max-width: 768px) {
+				body {
+					background-image:
+						radial-gradient(circle at center, rgba(5, 5, 5, 0.55) 0%, rgba(5, 5, 5, 0.95) 100%),
+						url('/bg-image.png');
+					background-position: 80% center;
+				}
+
+				.container {
+					padding: 2rem 1.5rem;
+				}
+
+				.top-tagline {
+					font-size: 1.15rem;
+				}
+
+				.logo {
+					font-size: 5.5rem;
+				}
+
+				.subtitle {
+					font-size: 1.05rem;
+					margin-bottom: 2.5rem;
+				}
+
+				.timer-container {
+					gap: 0.5rem;
+				}
+
+				.timer-segment {
+					min-width: 110px;
+				}
+
+				.timer-number {
+					font-size: 6.5rem;
+				}
+
+				.timer-colon {
+					font-size: 5rem;
+					margin-top: -1.25rem;
+				}
+
+				.timer-label {
+					font-size: 0.7rem;
+					letter-spacing: 0.1em;
+				}
+
+				.footer-text {
+					font-size: 0.85rem;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.logo {
+					font-size: 4.2rem;
+				}
+
+				.timer-container {
+					gap: 0.35rem;
+				}
+
+				.timer-segment {
+					min-width: 80px;
+				}
+
+				.timer-number {
+					font-size: 4.5rem;
+				}
+
+				.timer-colon {
+					font-size: 3.5rem;
+					margin-top: -1rem;
+				}
+
+				.timer-label {
+					font-size: 0.6rem;
+				}
+			}
+		</style>
+
+		<script>
+			const launchDate = new Date("2026-07-16T00:00:00+05:30").getTime();
+
+			function updateCountdown() {
+				const now = new Date().getTime();
+				const difference = launchDate - now;
+
+				const daysElement = document.getElementById("days");
+				const hoursElement = document.getElementById("hours");
+				const minutesElement = document.getElementById("minutes");
+				const secondsElement = document.getElementById("seconds");
+
+				if (difference <= 0) {
+					if (daysElement) daysElement.innerText = "00";
+					if (hoursElement) hoursElement.innerText = "00";
+					if (minutesElement) minutesElement.innerText = "00";
+					if (secondsElement) secondsElement.innerText = "00";
+					return;
+				}
+
+				const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+				if (daysElement) daysElement.innerText = String(days).padStart(2, '0');
+				if (hoursElement) hoursElement.innerText = String(hours).padStart(2, '0');
+				if (minutesElement) minutesElement.innerText = String(minutes).padStart(2, '0');
+				if (secondsElement) secondsElement.innerText = String(seconds).padStart(2, '0');
+			}
+
+			updateCountdown();
+			setInterval(updateCountdown, 1000);
+		</script>
+	</body>
+</html>
